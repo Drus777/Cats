@@ -8,18 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		78F23E542737E59D00292B70 /* CatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E532737E59D00292B70 /* CatsApp.swift */; };
-		78F23E562737E59D00292B70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E552737E59D00292B70 /* ContentView.swift */; };
+		78F23E562737E59D00292B70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E552737E59D00292B70 /* MainView.swift */; };
 		78F23E582737E5A500292B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78F23E572737E5A500292B70 /* Assets.xcassets */; };
 		78F23E5B2737E5A500292B70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78F23E5A2737E5A500292B70 /* Preview Assets.xcassets */; };
+		78F23E6D2737EDA100292B70 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E6C2737EDA100292B70 /* NetworkService.swift */; };
+		78F23E6E2737FABC00292B70 /* CatsResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E682737EA1F00292B70 /* CatsResponce.swift */; };
+		78F23E702737FF8700292B70 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E6F2737FF8700292B70 /* MainViewModel.swift */; };
+		78F23E7527381CE400292B70 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E7427381CE400292B70 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78F23E502737E59D00292B70 /* Cats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F23E532737E59D00292B70 /* CatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsApp.swift; sourceTree = "<group>"; };
-		78F23E552737E59D00292B70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		78F23E552737E59D00292B70 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		78F23E572737E5A500292B70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78F23E5A2737E5A500292B70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78F23E5C2737E5A500292B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78F23E682737EA1F00292B70 /* CatsResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsResponce.swift; sourceTree = "<group>"; };
+		78F23E6C2737EDA100292B70 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		78F23E6F2737FF8700292B70 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		78F23E7427381CE400292B70 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +60,12 @@
 		78F23E522737E59D00292B70 /* Cats */ = {
 			isa = PBXGroup;
 			children = (
-				78F23E532737E59D00292B70 /* CatsApp.swift */,
-				78F23E552737E59D00292B70 /* ContentView.swift */,
-				78F23E572737E5A500292B70 /* Assets.xcassets */,
+				78F23E6A2737EBF100292B70 /* App */,
+				78F23E622737E6BE00292B70 /* Resource */,
+				78F23E632737E6E100292B70 /* Services */,
+				78F23E642737E6EF00292B70 /* Models */,
+				78F23E652737E70000292B70 /* Views */,
+				78F23E71273819C300292B70 /* Extensions */,
 				78F23E5C2737E5A500292B70 /* Info.plist */,
 				78F23E592737E5A500292B70 /* Preview Content */,
 			);
@@ -67,6 +78,63 @@
 				78F23E5A2737E5A500292B70 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		78F23E622737E6BE00292B70 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				78F23E572737E5A500292B70 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		78F23E632737E6E100292B70 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				78F23E6C2737EDA100292B70 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		78F23E642737E6EF00292B70 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				78F23E682737EA1F00292B70 /* CatsResponce.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		78F23E652737E70000292B70 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78F23E6B2737EC0300292B70 /* MainView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78F23E6A2737EBF100292B70 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				78F23E532737E59D00292B70 /* CatsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		78F23E6B2737EC0300292B70 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				78F23E552737E59D00292B70 /* MainView.swift */,
+				78F23E6F2737FF8700292B70 /* MainViewModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		78F23E71273819C300292B70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				78F23E7427381CE400292B70 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F23E562737E59D00292B70 /* ContentView.swift in Sources */,
+				78F23E7527381CE400292B70 /* String.swift in Sources */,
+				78F23E702737FF8700292B70 /* MainViewModel.swift in Sources */,
+				78F23E562737E59D00292B70 /* MainView.swift in Sources */,
+				78F23E6D2737EDA100292B70 /* NetworkService.swift in Sources */,
 				78F23E542737E59D00292B70 /* CatsApp.swift in Sources */,
+				78F23E6E2737FABC00292B70 /* CatsResponce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
