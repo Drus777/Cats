@@ -59,6 +59,15 @@ struct MainView: View {
     .onAppear{
       viewModel.fetchCats()
     }
+    
+    Button(action: {
+      print(viewModel.favorites[0].url ?? "No result")
+    }, label: {
+      Text("Print Favorites")
+    })
+//    NavigationLink(destination: FavoritesView(urlString: viewModel.favorites)) {
+//      Text("Favorites")
+//    }
   }
   
 }
