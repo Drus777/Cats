@@ -11,6 +11,12 @@ import SDWebImageSwiftUI
 
 struct MainView: View {
   
+  @Environment(\.managedObjectContext) var managedObjectContext
+  @FetchRequest(
+    entity: Favorites.entity(),
+    sortDescriptors: [NSSortDescriptor(keyPath: \Favorites.url, ascending: true)]
+  ) var favorites: FetchedResults<Favorites>
+  
   @ObservedObject var viewModel = MainViewModel()
   @State private var isAlertPresented = false
   
@@ -29,16 +35,18 @@ struct MainView: View {
               .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
               .cornerRadius(15)
               .padding()
+              
           }
           
           Button(action: {
-            let item = Favorites(context: viewModel.managedObjectContext)
+            let item = Favorites(context: managedObjectContext)
             item.url = element.url
             PersistenceController.shared.save()
             
             isAlertPresented.toggle()
           }, label: {
             Text("Add to favorites")
+              .foregroundColor(.blue)
           })
           .padding(.bottom, 0)
           .alert(isPresented: $isAlertPresented) {
@@ -59,12 +67,7 @@ struct MainView: View {
     .onAppear{
       viewModel.fetchCats()
     }
-    
-    Button(action: {
-      print(viewModel.favorites[0].url ?? "No result")
-    }, label: {
-      Text("Print Favorites")
-    })
+   
 //    NavigationLink(destination: FavoritesView(urlString: viewModel.favorites)) {
 //      Text("Favorites")
 //    }

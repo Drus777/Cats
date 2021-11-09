@@ -13,11 +13,13 @@ struct FavoritesView: View {
 //  var urlString: String
   
   var body: some View {
+    
     ScrollView(.horizontal, content: {
       
       HStack(alignment: .center, spacing: 50) {
        
        Spacer()
+        
         Image(systemName: "square.and.arrow.up.fill")
           .resizable(capInsets: EdgeInsets())
           .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
@@ -28,6 +30,11 @@ struct FavoritesView: View {
       }
     })
   }
+  
+  private func loadImage(image: UIImage) {
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+  }
+  
 }
 
 struct FavoritesView_Previews: PreviewProvider {

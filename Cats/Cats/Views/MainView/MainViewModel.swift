@@ -11,11 +11,11 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
   
-  @Environment(\.managedObjectContext) var managedObjectContext
-  @FetchRequest(
-    entity: Favorites.entity(),
-    sortDescriptors: [NSSortDescriptor(keyPath: \Favorites.url, ascending: true)]
-  ) var favorites: FetchedResults<Favorites>
+//  @Environment(\.managedObjectContext) var managedObjectContext
+//  @FetchRequest(
+//    entity: Favorites.entity(),
+//    sortDescriptors: [NSSortDescriptor(keyPath: \Favorites.url, ascending: true)]
+//  ) var favorites: FetchedResults<Favorites>
   
   private let networkService = NetworkService()
   
@@ -24,12 +24,10 @@ class MainViewModel: ObservableObject {
   var cancellable: AnyCancellable?
   
   func fetchCats() {
-    
     cancellable = networkService.load().sink(receiveCompletion: { _ in
     }, receiveValue: { [weak self] responce in
       self?.cats.append(contentsOf: responce)
     })
-    
   }
   
 }
