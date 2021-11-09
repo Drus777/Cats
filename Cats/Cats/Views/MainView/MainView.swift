@@ -29,9 +29,9 @@ struct MainView: View {
     NavigationView {
       
       List(viewModel.cats, id: \.self){ element in
-      
-        VStack {
         
+        VStack {
+          
           if let imageUrlString = element.url {
             WebImage(url: URL(string: imageUrlString))
               .placeholder {
@@ -65,8 +65,6 @@ struct MainView: View {
             viewModel.fetchCats()
           }
         }
-      
-        
       }
       .padding()
       .navigationTitle(Text("Cats"))
@@ -75,10 +73,7 @@ struct MainView: View {
     .onAppear{
       viewModel.fetchCats()
     }
-   
-  
-    }
-  
+  }
 }
 
 struct MainView_Previews: PreviewProvider {
