@@ -22,10 +22,16 @@ struct MainView: View {
   
   var body: some View {
     
+    let link = NavigationLink(destination: FavoritesView()) {
+      Text("Favorite images")
+    }
+    
     NavigationView {
+      
       List(viewModel.cats, id: \.self){ element in
-        
+      
         VStack {
+        
           if let imageUrlString = element.url {
             WebImage(url: URL(string: imageUrlString))
               .placeholder {
@@ -35,7 +41,6 @@ struct MainView: View {
               .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
               .cornerRadius(15)
               .padding()
-              
           }
           
           Button(action: {
@@ -53,25 +58,26 @@ struct MainView: View {
             let button =  Alert.Button.default(Text("Ok"))
             return Alert(title: Text("Add to favorites"), dismissButton: button)
           }
+          
         }
         .onAppear{
           if element == viewModel.cats.last {
             viewModel.fetchCats()
           }
         }
+      
         
       }
       .padding()
       .navigationTitle(Text("Cats"))
+      .navigationBarItems(trailing: link)
     }
     .onAppear{
       viewModel.fetchCats()
     }
    
-//    NavigationLink(destination: FavoritesView(urlString: viewModel.favorites)) {
-//      Text("Favorites")
-//    }
-  }
+  
+    }
   
 }
 

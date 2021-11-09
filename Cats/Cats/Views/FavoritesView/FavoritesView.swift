@@ -10,22 +10,61 @@ import SDWebImageSwiftUI
 
 struct FavoritesView: View {
   
-//  var urlString: String
+  @FetchRequest(
+    entity: Favorites.entity(),
+    sortDescriptors: [NSSortDescriptor(keyPath: \Favorites.url, ascending: true)]
+  ) var favorites: FetchedResults<Favorites>
+  
+  @State private var tapped = false
+  @State private var isActionSheetPresented = false
   
   var body: some View {
     
     ScrollView(.horizontal, content: {
-      
       HStack(alignment: .center, spacing: 50) {
-       
-       Spacer()
         
-        Image(systemName: "square.and.arrow.up.fill")
-          .resizable(capInsets: EdgeInsets())
-          .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
-          .cornerRadius(15)
+        Spacer()
+        
+        ForEach (0..<favorites.count) { i in
           
-        
+          ZStack {
+            if let imageUrlString = favorites[i].url {
+              let webImage =  WebImage(url: URL(string: imageUrlString))
+                .resizable()
+                .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
+                .cornerRadius(15)
+                .padding()
+              webImage
+              Image("")
+                .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
+                .background(Color.white.opacity(0.1))
+                .onTapGesture {
+                  self.tapped.toggle()
+                  self.isActionSheetPresented.toggle()
+                }
+                .actionSheet(isPresented: $isActionSheetPresented) {
+                  
+                  var buttons = [ActionSheet.Button]()
+                  
+                  let saveButton = ActionSheet.Button.default(Text("Save to the photo library")) {
+                    if let image = webImage as? UIImage {
+                      loadImage(image: image)
+                    }
+                  }
+                  let deleteButton = ActionSheet.Button.destructive(Text("Delete")){
+                    PersistenceController.shared.delete(favorites[i])
+                  }
+                  let cancelButton = ActionSheet.Button.cancel()
+                  
+                  buttons.append(saveButton)
+                  buttons.append(deleteButton)
+                  buttons.append(cancelButton)
+                  
+                  return ActionSheet(title: Text(""), message: nil, buttons: buttons)
+                }
+            }
+          }
+        }
         Spacer()
       }
     })
@@ -34,7 +73,6 @@ struct FavoritesView: View {
   private func loadImage(image: UIImage) {
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
   }
-  
 }
 
 struct FavoritesView_Previews: PreviewProvider {

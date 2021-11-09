@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		784074602739BC0800750FF3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7840745F2739BC0800750FF3 /* FavoritesView.swift */; };
+		787C5AA2273AF80B0014712A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7840745F2739BC0800750FF3 /* FavoritesView.swift */; };
 		78F23E542737E59D00292B70 /* CatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E532737E59D00292B70 /* CatsApp.swift */; };
 		78F23E562737E59D00292B70 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F23E552737E59D00292B70 /* MainView.swift */; };
 		78F23E582737E5A500292B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78F23E572737E5A500292B70 /* Assets.xcassets */; };
@@ -284,7 +284,7 @@
 				78F23E562737E59D00292B70 /* MainView.swift in Sources */,
 				78F23E6D2737EDA100292B70 /* NetworkService.swift in Sources */,
 				78F23E542737E59D00292B70 /* CatsApp.swift in Sources */,
-				784074602739BC0800750FF3 /* FavoritesView.swift in Sources */,
+				787C5AA2273AF80B0014712A /* FavoritesView.swift in Sources */,
 				78F23E78273852ED00292B70 /* CoreDataModelCats.xcdatamodeld in Sources */,
 				78F23E6E2737FABC00292B70 /* CatsResponce.swift in Sources */,
 				78F23E7A273853CB00292B70 /* PersistenceController.swift in Sources */,

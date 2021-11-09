@@ -11,12 +11,6 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
   
-//  @Environment(\.managedObjectContext) var managedObjectContext
-//  @FetchRequest(
-//    entity: Favorites.entity(),
-//    sortDescriptors: [NSSortDescriptor(keyPath: \Favorites.url, ascending: true)]
-//  ) var favorites: FetchedResults<Favorites>
-  
   private let networkService = NetworkService()
   
   @Published var cats: [CatsResponce] = []
