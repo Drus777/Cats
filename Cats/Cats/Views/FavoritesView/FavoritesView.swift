@@ -24,7 +24,6 @@ struct FavoritesView: View {
       HStack(alignment: .center, spacing: 50) {
         
         Spacer()
-        
         ForEach (0..<favorites.count) { i in
           
           ZStack {
@@ -33,7 +32,7 @@ struct FavoritesView: View {
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
                 .cornerRadius(15)
-                .padding()
+//                .padding()
               webImage
               Image("")
                 .frame(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width - 100)
@@ -66,6 +65,7 @@ struct FavoritesView: View {
           }
         }
         Spacer()
+          .navigationTitle(Text("Favorites"))
       }
     })
   }
